@@ -1,0 +1,35 @@
+$Jura: 'Jura', sans-serif;
+
+@mixin container{
+  width: 1700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@mixin Text50 {
+  color: #FFF;
+  font-family: $Jura;
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 111.006%; /* 55.503px */
+  letter-spacing: 5.5px;
+} 
+@mixin Text36 {
+  color: #A5A5A5;
+  font-family: $Jura;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 214.375%; /* 77.175px */
+  letter-spacing: 3.24px;
+}
+@mixin Text20 {
+  color: #FFF;
+  font-family: $Jura;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 214.375%; /* 42.875px */
+  letter-spacing: 1.8px;
+}

@@ -1,0 +1,37 @@
+@import "vendor";
+@import "mixins";
+@import "settings";
+
+body {
+  background: #000;
+  color: aquamarine
+}
+
+.container {
+  @include container;
+  margin-bottom: 73px;
+  h1 {
+    @include Text50;
+  }
+  .result-grid {
+    display: grid;
+    grid-template-columns: repeat(8, 157px);
+    grid-template-rows: repeat(5, 147px);
+    column-gap: 57px;
+    row-gap: 34px;
+    .grid-block {
+    box-shadow: 0px 0px 41.8px #1B708B;
+    border-radius: 67px;
+
+    }
+    .item1 {
+      grid-area: 1 / 1 / 6 / 5;
+    }
+    .item2 {
+      grid-area: 1 / 5 / 3 / 9;
+    }
+    .item3 {
+      grid-area: 3 / 5 / 6 / 9;
+    }
+  }
+}

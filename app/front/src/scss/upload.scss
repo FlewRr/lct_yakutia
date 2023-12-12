@@ -1,0 +1,90 @@
+@import "vendor";
+@import "mixins";
+@import "settings";
+
+body {
+  background: radial-gradient(61.2% 61.2% at 50% 46.57%, #010101 54.86%, #131B3E 100%);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 1080px;
+}
+
+.container {
+  @include container;
+  .upload-flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 62px;
+    h1 {
+      @include Text50;
+    }
+    .drag-over {
+      filter: blur(5px);
+    }
+    .drop-zone {
+      padding-top: 61px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 79px;
+
+      border-radius: 45px;
+      outline: 11px dashed #335778;
+      outline-offset: 10px;
+
+      background: #1E212B;
+      width: 908px;
+      height: 413px;
+
+      transition: all 0.5s;
+
+      p {
+        @include Text36;
+      }
+      label {
+        @include Text36;
+        border-radius: 24px;
+        background: #335778;
+        color: #FFF;
+        padding: 7px 75px 11px 75px;
+      } 
+      input {
+        opacity: 0;
+      }
+    }
+    .download {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      p{
+        color: #FFF;
+        font-family: $Jura;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 214.375%;
+        letter-spacing: 2.16px;
+        text-align: left;
+      }
+      .download-circle {
+        width: 67px;
+        height: 67px;
+        border: 5px solid #FFFFFF;
+        border-top: 5px solid #1F962B;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin: 20px auto;
+      }
+      a {
+        @include Text20;
+      }
+    }
+  }
+}
+
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
