@@ -16,6 +16,25 @@ body {
     justify-content: flex-end;
     gap: 20px;
     padding: 43px 110px 43px 0px;
+    .telega {
+      transition: 0.5s;
+      cursor: pointer;
+    }
+    .telega:hover {
+      filter: contrast(150%) brightness(140%) drop-shadow(3px 10px 0px #6cacb1);
+    }
+
+    .mail {
+      transition: 0.5s;
+      cursor: pointer;
+    }
+    .mail:hover {
+      filter: contrast(150%) brightness(140%) drop-shadow(3px 10px 0px #6cacb1);
+    }
+
+    .our-telega {
+      
+    }
   }
 }
 
@@ -36,24 +55,26 @@ body {
       p {
         @include Text20;
       }
+
       .link-button {
-        .button-holder {
-          display: flex;
-          align-items: center;
-          gap: 20px;
-          .arrow-start {
-            width: 29.032px;
-            height: 28.627px;
-            transform: rotate(-45deg);
-            background-color: #59669C;
-          }
+        width: 190px;
+        height: 60px;
+        border-radius: 20px;
+        transition: all 0.3s;
+        outline: 3px solid rgba(8, 217, 204, 0.53);
+        outline-offset: 5px;
 
-
-
-          .button-p {
-            @include Text20;
-            line-height: 114.375%; /* 22.875px */
-          }
+        &:hover {
+          outline: 3px dotted;
+          outline-offset: 0px;
+          outline-color: rgb(10, 129, 10)
+        }
+        
+        .button-p {
+          @include Text20;
+          padding-top: 7px;
+          line-height: 104.375%; /* 22.875px */
+          text-align: center;
         }
       }
     }

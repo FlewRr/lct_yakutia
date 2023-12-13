@@ -99,9 +99,34 @@ body {
     }
     .item2 {
       grid-area: 1 / 5 / 3 / 9;
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
       .myCircl-holder {
         width: 220px;
         height: 220px;
+        position: relative;
+        
+        .chelick-holder {
+          width: 134px;
+          height: 50px;
+
+          position: absolute;
+          top: 77px;
+          left: 45px;
+
+          overflow: hidden;
+          p {
+            @include Text50;
+            text-align: center;
+          }
+        }
+
+      }
+      .myCircl-stat {
+        p {
+          @include Text50;
+        }
       }
     }
     .item3 {

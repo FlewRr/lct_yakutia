@@ -7,25 +7,26 @@ const ctx = document.getElementById('myChart').getContext('2d');
 
 
 new Chart(crl, {
-  type: 'pie', // тип графика
+  type: 'doughnut', // тип графика
   data: {
     labels: ['Янв', 'Фев', 'Март'],
     datasets: [{
       label: 'Продажи, grgr',
-      data: [12, 19, 3,],
+      data: [57, 40, 3,],
       backgroundColor: [
-        'rgb(255, 99, 132)',
-        'rgb(54, 162, 235)',
-        'rgb(255, 205, 86)'
+        '#8F0B0B',
+        '#F38137',
+        '#61B124'
       ], 
-      borderColor: '#5428D3', // цвет границы
+      borderColor: '#000', // цвет границы
       borderWidth: 1, // ширина границы
     }]
   },
   options: {
-    scales: {
-      y: {
-        beginAtZero: true
+    cutout: '80%',
+    plugins: {
+      legend: {
+        display: false, // Скрыть легенду
       }
     }
   }
@@ -33,7 +34,7 @@ new Chart(crl, {
 
 
 new Chart(ctx, {
-  type: 'bar', // тип графика
+  type: 'line', // тип графика
   data: {
     labels: ['10%', '20%', '30%', '40%', '50%', '60%', '70%', '80%', '90%', '100%'],
     datasets: [{
