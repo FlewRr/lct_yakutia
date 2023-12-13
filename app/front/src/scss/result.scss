@@ -4,7 +4,6 @@
 
 body {
   background: #000;
-  color: aquamarine
 }
 
 .container {
@@ -14,11 +13,13 @@ body {
     @include Text50;
   }
   .result-grid {
+
     display: grid;
     grid-template-columns: repeat(8, 157px);
     grid-template-rows: repeat(5, 147px);
     column-gap: 57px;
     row-gap: 34px;
+
     .grid-block {
     box-shadow: 0px 0px 41.8px #1B708B;
     border-radius: 67px;
@@ -26,12 +27,93 @@ body {
     }
     .item1 {
       grid-area: 1 / 1 / 6 / 5;
+
+      .sorting {
+        margin-top: 38px;
+        display: flex;
+        justify-content: center;
+        .sort-button {
+
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          
+
+          width: 338px;
+          height: 49.574px;
+          background-color: #2C3350;
+          border-radius: 18px;
+          span {
+            @include Text20
+          }
+        }
+      }
+
+      .person-scroll {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        overflow: hidden;
+        overflow-y: scroll;
+        scroll-behavior: smooth;
+        height: 695px;
+        .person {
+          display: flex;
+          align-items: flex-end;
+          align-content: center;
+          justify-content: space-evenly;
+
+          .fio-and-bar {
+            .person-name {
+              @include Text24;
+            }
+
+            .bar-holder {
+              width: 544px;
+              height: 25px;
+
+              border-radius: 27px;
+              background: #D0E3D2;
+
+              position: relative;
+              overflow: hidden;
+              .bar {
+                width: 30%;
+                height: 100%;
+                position: absolute;
+
+                border-radius: 27px;
+                background: linear-gradient(90deg, #7ADE2D 0%, #5AA521 100%);
+              }
+            }
+          }
+          .person-percent {
+            p {
+              @include Text24;
+              line-height: 120.375%;
+              text-align: center;
+            }
+          }
+        }
+      }
     }
     .item2 {
       grid-area: 1 / 5 / 3 / 9;
+      .myCircl-holder {
+        width: 220px;
+        height: 220px;
+      }
     }
     .item3 {
       grid-area: 3 / 5 / 6 / 9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .myChart-holder {
+        width: 756px;
+        height: 408px;
+      }
     }
+    
   }
 }

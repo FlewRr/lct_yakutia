@@ -19,20 +19,68 @@
 
       <div class="item1 grid-block">
 
-        <div class="soting">
-          <div class="sort-button" onclick=""><span id="sortType">Алфавиту</span></div>
+        <div class="sorting">
+          <div class="sort-button" onclick="toggleDropdown()"><span id="sortType">Алфавиту</span></div>
         </div>
 
-        <div class="person">
-          <div class="person-item" data-name="Иванов Иван Иванович" data-percentage="20">Иванов Иван Иванович - 20%</div>
+        <div class="person-scroll">
+
+          <div class="person">
+
+            <div class="fio-and-bar">
+              
+              <span class="person-name">Иванов Иван Иванович</span>
+              <div class="bar-holder">
+                <div class="bar">
+                  
+                </div>
+              </div>
+
+            </div>
+
+            <div class="person-percent">
+              <div>
+                <p> 53% <br> Внимание</p>
+              </div>
+            </div>
+
+            <!-- <div class="person-item" data-name="Иванов Иван Иванович" data-percentage="20">Иванов Иван Иванович - 20%</div> -->
+          </div>
+
+          <div class="person">
+
+            <div class="fio-and-bar">
+              
+              <span class="person-name">Иванов Иван Иванович</span>
+              <div class="bar-holder">
+                <div class="bar">
+                  
+                </div>
+              </div>
+
+            </div>
+
+            <div class="person-percent">
+              <p> 53% <br> Внимание</p>
+            </div>
+
+            <!-- <div class="person-item" data-name="Иванов Иван Иванович" data-percentage="20">Иванов Иван Иванович - 20%</div> -->
+          </div>
+
         </div>
 
       </div>
 
       <div class="item2 grid-block">
+        <div class="myCircl-holder">
+          <canvas id="myCircl"></canvas>
+        </div>
       </div>
 
       <div class="item3 grid-block">
+        <div class="myChart-holder">
+          <canvas id="myChart"></canvas>
+        </div>
       </div>
 
     </div>

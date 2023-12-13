@@ -86,6 +86,8 @@ module.exports = {
     port: 3000,
   },
 
+  optimization: optimization(),
+
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'src/index.html'),

@@ -24,6 +24,17 @@ $Jura: 'Jura', sans-serif;
   line-height: 214.375%; /* 77.175px */
   letter-spacing: 3.24px;
 }
+
+@mixin Text24 {
+  color: #FFF;
+  font-family: $Jura;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 214.375%; /* 51.45px */
+  letter-spacing: 2.16px;
+}
+
 @mixin Text20 {
   color: #FFF;
   font-family: $Jura;
