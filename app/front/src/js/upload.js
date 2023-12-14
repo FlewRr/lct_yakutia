@@ -4,6 +4,7 @@ import '../scss/upload.scss';
 const fileInput = document.getElementById('fileInput');
 const fileInfo = document.getElementById('fileInfo');
 const dropZone = document.getElementById('dropZone');
+const resolt = document.getElementById('resolt');
 
 dropZone.addEventListener('dragover', (event) => {
   event.preventDefault();
@@ -24,6 +25,7 @@ dropZone.addEventListener('drop', (event) => {
     const fileSize = formatFileSize(fileList[0].size);
 
     fileInfo.innerHTML = `Имя файла: ${fileName}<br>Размер файла: ${fileSize}`;
+    resolt.innerHTML = `<a class="result-class" href="./result.html">Результат</a>`;
   } else {
     fileInfo.innerHTML = 'Загрузите только один файл за раз.';
   }
@@ -37,6 +39,7 @@ fileInput.addEventListener('change', () => {
     const fileSize = formatFileSize(fileList[0].size);
 
     fileInfo.innerHTML = `Имя файла: ${fileName}<br>Размер файла: ${fileSize}`;
+    resolt.innerHTML = `<a class="result-class" href="./result.html">Результат</a>`;
   } else {
     fileInfo.innerHTML = 'Загрузите только один файл за раз.';
   }

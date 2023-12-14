@@ -9,9 +9,9 @@ const ctx = document.getElementById('myChart').getContext('2d');
 new Chart(crl, {
   type: 'doughnut', // тип графика
   data: {
-    labels: ['Янв', 'Фев', 'Март'],
+    labels: ['Больше 60%', 'Больше 30%', 'До 30%'],
     datasets: [{
-      label: 'Продажи, grgr',
+      label: 'ерер',
       data: [57, 40, 3,],
       backgroundColor: [
         '#8F0B0B',
@@ -47,9 +47,23 @@ new Chart(ctx, {
   },
   options: {
     scales: {
+
+      x: {
+        grid: {
+          color: '#7E7A7A' // Цвет вертикальной сетки
+        }
+      },
       y: {
-        beginAtZero: true
+        
+        beginAtZero: true,
+        grid: {
+          color: '#7E7A7A' // Цвет горизонтальной сетки
+        }
       }
+
+      // y: {
+      //   
+      // }
     }
   }
 });

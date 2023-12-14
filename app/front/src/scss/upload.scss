@@ -54,37 +54,47 @@ body {
       }
     }
     .download {
+      width: 908px;
       display: flex;
-      gap: 20px;
       align-items: center;
-      p{
-        color: #FFF;
-        font-family: $Jura;
-        font-size: 24px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 214.375%;
-        letter-spacing: 2.16px;
-        text-align: left;
+      justify-content: space-between;
+      .fileInfo-holder {
+        width: 608px;
+        overflow: hidden;
+        p{
+          color: #FFF;
+          font-family: $Jura;
+          font-size: 24px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 214.375%;
+          letter-spacing: 2.16px;
+        }
       }
-      .download-circle {
-        width: 67px;
-        height: 67px;
-        border: 5px solid #FFFFFF;
-        border-top: 5px solid #1F962B;
-        border-radius: 50%;
-        animation: spin 1s linear infinite;
-        margin: 20px auto;
-      }
-      a {
-        @include Text20;
-      }
+
+      .result-class-holder {
+        .result-class {
+          @include Text20;
+          width: 247px;
+          height: 63px;
+
+          position: relative;
+  
+          display: flex;
+          align-items: center;
+          justify-content: center;
+  
+          border-radius: 11px;
+          background: #1E212A;
+          box-shadow: 0px 0px 6.8px 2px #335776;
+
+          transition: 0.4s;
+        }
+        .result-class:hover {
+          box-shadow: 0px 0px 6.8px 8px #3d3c66;
+          letter-spacing: 7.8px;
+        }
+      } 
     }
   }
-}
-
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
 }

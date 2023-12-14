@@ -11,11 +11,13 @@ body {
 
 .header {
   background: rgba(0, 0, 0, 0.33);
+  height: 70px;
+  box-shadow: 0px 4px 94.1px 14px rgba(3, 6, 16, 0.97);
   .icon-holder {
-    display: flex;
-    justify-content: flex-end;
-    gap: 20px;
-    padding: 43px 110px 43px 0px;
+    // display: flex;
+    // justify-content: flex-end;
+    // gap: 20px;
+    // padding: 43px 110px 43px 0px;
     .telega {
       transition: 0.5s;
       cursor: pointer;
@@ -32,9 +34,6 @@ body {
       filter: contrast(150%) brightness(140%) drop-shadow(3px 10px 0px #6cacb1);
     }
 
-    .our-telega {
-      
-    }
   }
 }
 
@@ -64,12 +63,28 @@ body {
         outline: 3px solid rgba(8, 217, 204, 0.53);
         outline-offset: 5px;
 
+        display: flex;
+        justify-content: space-evenly;
+
+
         &:hover {
-          outline: 3px dotted;
           outline-offset: 0px;
-          outline-color: rgb(10, 129, 10)
+          outline-color: rgb(10, 129, 10);
+          transform: translateY(-3px);
+
+          width: 220px;
+          .arrow {
+            transform: translateX(15px); // Сдвиг стрелки при наведении на всю кнопку
+          }
         }
         
+        .arrow {
+          padding-top: 16px;
+          text-align: center;
+
+          transition: all 0.3s;
+        }
+
         .button-p {
           @include Text20;
           padding-top: 7px;
