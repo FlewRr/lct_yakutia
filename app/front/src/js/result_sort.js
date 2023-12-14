@@ -3,6 +3,7 @@ import people from './result';
 const sortButton = document.querySelector('.sort-button');
 const sortMethods = document.querySelector('.sort-methods');
 const sortArrow = document.querySelector('.sort-arrow');
+const sortType = document.getElementById('sortType');
 
 sortButton.addEventListener('click', () => {
   sortMethods.classList.toggle('sort-methods-before');
@@ -44,16 +45,19 @@ document.addEventListener("DOMContentLoaded", () => {
   function sortByPercentDecreasing() {
     peopleData = [...peopleData].sort((a, b) => b.percent - a.percent);
     renderPeople(peopleData);
+    sortType.innerHTML = 'По убыванию';
   }
 
   function sortByPercentIncreasing() {
     peopleData = [...peopleData].sort((a, b) => a.percent - b.percent);
     renderPeople(peopleData);
+    sortType.innerHTML = 'По нарастанию';
   }
 
   // Добавляем слушатели для кнопок сортировки
   const setMethodButton = document.getElementById('setMethod');
   setMethodButton.addEventListener('click', sortByPercentDecreasing);
+
 
   const riseMethodButton = document.getElementById('riseMethod');
   riseMethodButton.addEventListener('click', sortByPercentIncreasing);
