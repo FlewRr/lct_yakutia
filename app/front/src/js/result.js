@@ -1,10 +1,24 @@
 import '../result.html';
 import '../scss/result.scss';
+import './result_sort';
 import Chart from 'chart.js/auto';
 
 const crl = document.getElementById('myCircl').getContext('2d');
 const ctx = document.getElementById('myChart').getContext('2d');
 
+const people = [{
+  name: 'шрьенщз Ииещз Щбиапам',
+  percent: 23
+}, {
+  name: 'Зтпдльт Чвпилв Пьпщзил',
+  percent: 46
+}, {
+  name: 'Аюлщдид Уртзнщптб Йшпиьп',
+  percent: 88
+},
+];
+
+export default people;
 
 new Chart(crl, {
   type: 'doughnut', // тип графика
