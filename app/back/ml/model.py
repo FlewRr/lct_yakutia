@@ -2,8 +2,8 @@ from catboost import CatBoostClassifier
 import json
 import pandas as pd
 
-TEST_DATA_PATH = "app/ml/data/test.csv"
-JSON_DATA_PATH = "app/ml/data/prediction.json"
+TEST_DATA_PATH = "/home/yagub/PycharmProjects/lct_yakutia/app/back/ml/data/test.csv"
+
 
 class Classifier:
     def __init__(self, model, bin_path):
@@ -12,6 +12,7 @@ class Classifier:
 
     def predict(self, data):
         assert self.data_columns == list(data.columns)
+
 
         prediction = self.model.predict_proba(data)
         probabilities = [probability[1] * 100 for probability in prediction]

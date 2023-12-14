@@ -1,37 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Jura&display=swap" rel="stylesheet">
-  <title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jura&display=swap" rel="stylesheet">
+    <title>Document</title>
 </head>
 <body>
-  <div class="container">
+<div class="container">
     <div class="upload-flex">
 
-      <h1>Загрузите данные</h1>
+        <h1>Загрузите данные</h1>
 
-      <div class="drop-zone" id="dropZone">
-        <p>Загрузите файл в формате csv</p>
-        <label for="fileInput">
-          Загрузить
-        </label>
-        <input type="file"  id="fileInput">
-      </div>
+        <form action="/upload" method="post" enctype="multipart/form-data"><!-- заменить в конечном файле-->
+            <div class="drop-zone" id="dropZone">
+                <p>Загрузите файл в формате csv</p>
+                <label for="fileInput">
+                    Загрузить
+                </label>
+                <input type="file" name="file" id="fileInput"><!-- заменить в конечном файле-->
+                <button type="submit">Отправить</button><!-- заменить в конечном файле-->
+            </div>
 
-      <div class="download">
-        <div class="fileInfo-holder">
-          <p id="fileInfo"></p>
+        </form><!-- заменить в конечном файле-->
+        <div class="download">
+            <div class="fileInfo-holder">
+                <p id="fileInfo"></p>
+            </div>
+            <div class="result-class-holder" id="resolt">
+                <!-- <a class="result-class" href="./result.html">Результат</a> -->
+            </div>
         </div>
-        <div class="result-class-holder" id="resolt">
-          <!-- <a class="result-class" href="./result.html">Результат</a> -->
-        </div>
-      </div>
 
     </div>
-  </div>
+</div>
 </body>
 </html>
