@@ -1,5 +1,13 @@
-
 import people from './result';
+
+const sortButton = document.querySelector('.sort-button');
+const sortMethods = document.querySelector('.sort-methods');
+const sortArrow = document.querySelector('.sort-arrow');
+
+sortButton.addEventListener('click', () => {
+  sortMethods.classList.toggle('sort-methods-before');
+  sortArrow.classList.toggle('sort-arrow-click');
+})
 
 document.addEventListener("DOMContentLoaded", () => {
   const personScroll = document.querySelector('.person-scroll');

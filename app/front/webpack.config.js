@@ -136,11 +136,16 @@ module.exports = {
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
       },
       {
-        test: /\.(?:|gif|png|jpg|jpeg|svg)$/i,
+        test: /\.(?:gif|png|jpg|jpeg|svg)$/i,
         type: 'asset/resource',
         generator: {
           filename: `./img/${filename('[ext]')}`
         }
+      },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: [{loader: 'babel-loader'}]
       }
     ]
   }

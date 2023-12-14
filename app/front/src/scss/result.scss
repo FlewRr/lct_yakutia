@@ -47,6 +47,9 @@ body {
           height: 49.574px;
           background-color: #2C3350;
           border-radius: 18px;
+
+          cursor: pointer;
+
           .sort-type {
             @include Text20;
           }
@@ -59,7 +62,11 @@ body {
 
             height: 49.574px;
             transform: rotateX(180deg);
+            transition: 0.2s;
           }
+          .sort-arrow-click {
+            transform: rotateX(0deg);
+          } 
         }
         .sort-methods {
           position: absolute;
@@ -79,7 +86,14 @@ body {
           z-index: 1;
 
           @include Text20;
+          visibility: hidden;
           
+          p {
+            cursor: pointer;
+          }
+        }
+        .sort-methods-before{
+          visibility: visible;
         }
       }
 
