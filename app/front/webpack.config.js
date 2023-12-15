@@ -5,6 +5,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerWebpackPlugin = require ('css-minimizer-webpack-plugin');
 const TerserWebpackPlugin = require ('terser-webpack-plugin');
 const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+
 
 const isDev = process.env.NODE_ENV === 'development';
 const isProd = !isDev;
@@ -120,6 +122,11 @@ module.exports = {
 
     new MiniCssExtractPlugin({
       filename: `./css/${filename('css')}`
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: 'js/prediction.json', to: 'js' },
+      ],
     })
   ],
 

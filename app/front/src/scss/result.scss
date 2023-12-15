@@ -180,8 +180,21 @@ body {
 
       }
       .myCircl-stat {
-        p {
-          @include Text50;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+
+        .cirxl-stat-holder {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          p {
+            @include Text36;
+            line-height: 111.006%;
+            color: #FFF;
+          }
         }
       }
     }

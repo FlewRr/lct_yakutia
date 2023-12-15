@@ -6,27 +6,43 @@ import Chart from 'chart.js/auto';
 const crl = document.getElementById('myCircl').getContext('2d');
 const ctx = document.getElementById('myChart').getContext('2d');
 
-const people = [{
-  name: 'шрьенщз Ииещз Щбиапам',
-  percent: 23
-}, {
-  name: 'Зтпдльт Чвпилв Пьпщзил',
-  percent: 46
-}, {
-  name: 'Аюлщдид Уртзнщптб Йшпиьп',
-  percent: 88
-},
-];
+const massPep = document.getElementById('mass-pep');
+
+const belowThan30 = document.getElementById('lessThan30');
+const MoreThan30 = document.getElementById('MoreThan30');
+const MoreThan60 = document.getElementById('MoreThan60');
+
+
+// ПРЕОБРАЗОВАНИЕ JSON
+const data = require('./prediction.json');
+
+const people = Object.entries(data).map(([key, value]) => ({
+  name: key,
+  percent: Math.round(value * 100)
+}));
 
 export default people;
+
+
+const pepCount = people.length;
+massPep.innerHTML = pepCount;
+
+const greaterThan60 = people.filter(person => person.percent > 60).length;
+const between31And60 = people.filter(person => person.percent >= 31 && person.percent <= 60).length;
+const lessThan30 = people.filter(person => person.percent <= 30).length;
+
+belowThan30.innerHTML = `${lessThan30} - Менее 30%`
+MoreThan30.innerHTML = `${between31And60} - Более 30%`
+MoreThan60.innerHTML = `${greaterThan60} - Более 60%`
+
 
 new Chart(crl, {
   type: 'doughnut', // тип графика
   data: {
     labels: ['Больше 60%', 'Больше 30%', 'До 30%'],
     datasets: [{
-      label: 'ерер',
-      data: [57, 40, 3,],
+      label: 'Колличество человек',
+      data: [greaterThan60, between31And60, lessThan30,],
       backgroundColor: [
         '#8F0B0B',
         '#F38137',
@@ -46,38 +62,68 @@ new Chart(crl, {
   }
 });
 
+const dataPoints = people.map(person => person.percent);
 
+// Определение оптимального количества бинов
+const binCount = Math.ceil(Math.sqrt(dataPoints.length));
+
+// Разбиение данных на бины
+const bins = Array.from({ length: binCount }, (_, index) => ({
+  min: (index / binCount) * 100,
+  max: ((index + 1) / binCount) * 100,
+  count: 0,
+}));
+
+// Подсчет количества сотрудников в каждом бине
+dataPoints.forEach(percent => {
+  const binIndex = bins.findIndex(bin => percent >= bin.min && percent < bin.max);
+  if (binIndex !== -1) {
+    bins[binIndex].count += 1;
+  }
+});
+
+// Создание гистограммы
 new Chart(ctx, {
-  type: 'line', // тип графика
+  type: 'bar',
   data: {
-    labels: ['10%', '20%', '30%', '40%', '50%', '60%', '70%', '80%', '90%', '100%'],
+    labels: bins.map(bin => `${bin.min.toFixed(0)}% - ${bin.max.toFixed(0)}%`),
     datasets: [{
-      label: 'Продажи, grgr',
-      data: [30, 15, 39, 5, 20, 60, 89, 45, 67, 33, 12, 89, 56, 99],
-      backgroundColor: '#4A4444', // цвет фона
-      borderColor: '#5428D3', // цвет границы
-      borderWidth: 3, // ширина границы
-    }]
+      label: 'Распределение сотрудников по вероятности увольнения',
+      data: bins.map(bin => bin.count),
+      backgroundColor: '#372373D1',
+      borderColor: '#29255BD1',
+      borderWidth: 1,
+    }],
   },
   options: {
-    scales: {
+    plugins: {
+      legend: {
+        labels: {
+            font: {
+              family: 'Jura',
+              size: 20,
+            }
+          }
+        },
 
+      tooltip: {
+          enabled: false,
+          bodyFontColor: '#FFF', // Цвет текста в подсказках
+          titleFontColor: '#FFF', // Цвет заголовка подсказки
+      }
+  },
+    scales: {
       x: {
         grid: {
-          color: '#7E7A7A' // Цвет вертикальной сетки
-        }
+          color: '#7E7A7A',
+        },
       },
       y: {
-        
         beginAtZero: true,
         grid: {
-          color: '#7E7A7A' // Цвет горизонтальной сетки
-        }
-      }
-
-      // y: {
-      //   
-      // }
-    }
-  }
+          color: '#7E7A7A',
+        },
+      },
+    },
+  },
 });

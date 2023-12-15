@@ -39,7 +39,7 @@ fileInput.addEventListener('change', () => {
     const fileSize = formatFileSize(fileList[0].size);
 
     fileInfo.innerHTML = `Имя файла: ${fileName}<br>Размер файла: ${fileSize}`;
-    resolt.innerHTML = `<a class="result-class" href="./result.html">Результат</a>`;
+    resolt.innerHTML = `<a class="result-class" href="/result.html">Результат</a>`;
   } else {
     fileInfo.innerHTML = 'Загрузите только один файл за раз.';
   }

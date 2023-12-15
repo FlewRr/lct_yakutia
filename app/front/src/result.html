@@ -22,7 +22,7 @@
         <div class="sorting">
 
           <div class="sort-button">
-            <span class="sort-type" id="sortType">По нарастанию</span>
+            <span class="sort-type" id="sortType">Выберите тип</span>
             <div class="sort-arrow">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="14" viewBox="0 0 24 14" fill="none">
                 <path d="M10.9393 13.0934C11.5251 13.6792 12.4749 13.6792 13.0607 13.0934L22.6066 3.54751C23.1924 2.96172 23.1924 2.01197 22.6066 1.42619C22.0208 0.840399 21.0711 0.840399 20.4853 1.42619L12 9.91147L3.51472 1.42619C2.92893 0.840399 1.97919 0.840399 1.3934 1.42619C0.807613 2.01197 0.807613 2.96172 1.3934 3.54751L10.9393 13.0934ZM10.5 11V12.0328H13.5V11L10.5 11Z" fill="white"/>
@@ -89,14 +89,20 @@
         <div class="myCircl-holder">
           <canvas id="myCircl"></canvas>
           <div class="chelick-holder">
-            <p>22</p>
+            <p id="mass-pep"></p>
           </div>
         </div>
 
         <div class="myCircl-stat">
-          <p>Я - 30%</p>
-          <p>Уже - 20%</p>
-          <p>Заебался - 50%</p>
+          <div class="cirxl-stat-holder">
+            <p id="lessThan30"></p>
+          </div>
+          <div class="cirxl-stat-holder">
+            <p id="MoreThan30"></p>
+          </div>
+          <div class="cirxl-stat-holder">
+            <p id="MoreThan60"></p>
+          </div>
         </div>
 
       </div>

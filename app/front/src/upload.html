@@ -14,13 +14,16 @@
 
       <h1>Загрузите данные</h1>
 
-      <div class="drop-zone" id="dropZone">
-        <p>Загрузите файл в формате csv</p>
-        <label for="fileInput">
-          Загрузить
-        </label>
-        <input type="file" accept=".csv" id="fileInput">
-      </div>
+      <form action="/upload" method="post" enctype="multipart/form-data">
+        <div class="drop-zone" id="dropZone">
+          <p>Загрузите файл в формате csv</p>
+          <label for="fileInput">
+            Загрузить
+          </label>
+          <input type="file" name="file" accept=".csv" id="fileInput">
+        </div>
+      </form>
+
 
       <div class="download">
         <div class="fileInfo-holder">
