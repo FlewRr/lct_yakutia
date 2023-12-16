@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function sortByPercentIncreasing() {
     peopleData = [...peopleData].sort((a, b) => a.percent - b.percent);
     renderPeople(peopleData);
-    sortType.innerHTML = 'По нарастанию';
+    sortType.innerHTML = 'По возрастанию';
   }
 
   // Добавляем слушатели для кнопок сортировки
