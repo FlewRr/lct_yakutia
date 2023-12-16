@@ -1,4 +1,9 @@
-import people from './result';
+// import people from './result';
+// import { fetchData, people } from './result';
+
+import { people } from './result.js';
+
+// console.log(people);
 
 const sortButton = document.querySelector('.sort-button');
 const sortMethods = document.querySelector('.sort-methods');

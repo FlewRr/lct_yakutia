@@ -10,31 +10,34 @@
 </head>
 <body>
   <div class="container">
-    <div class="upload-flex">
 
-      <h1>Загрузите данные</h1>
+    <!-- <form action="/upload" method="post" enctype="multipart/form-data"> -->
+      <div class="upload-flex">
 
-      <form action="/upload" method="post" enctype="multipart/form-data">
-        <div class="drop-zone" id="dropZone">
-          <p>Загрузите файл в формате csv</p>
-          <label for="fileInput">
-            Загрузить
-          </label>
-          <input type="file" name="file" accept=".csv" id="fileInput">
-        </div>
-      </form>
+        <h1>Загрузите данные</h1>
 
+          <div class="drop-zone" id="dropZone">
+            <p>Загрузите файл в формате csv</p>
+              <label for="fileInput">
+                Загрузить
+              </label> 
+            <input type="file" name="file" accept=".csv" id="fileInput">
+          </div>
 
-      <div class="download">
-        <div class="fileInfo-holder">
-          <p id="fileInfo"></p>
-        </div>
-        <div class="result-class-holder" id="resolt">
-          <!-- <a class="result-class" href="./result.html">Результат</a> -->
-        </div>
+          <div class="download">
+            <div class="fileInfo-holder">
+              <p id="fileInfo"></p>
+            </div>
+            <div class="result-class-holder" id="resolt">
+              <!-- <button type="submit" class="result-class" href="/result">
+                Результат
+              </button> -->
+            </div>
+          </div>
+
       </div>
+    <!-- </form> -->
 
-    </div>
   </div>
 </body>
 </html>
