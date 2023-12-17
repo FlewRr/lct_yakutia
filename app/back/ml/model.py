@@ -15,7 +15,7 @@ class Classifier:
 
 
         prediction = self.model.predict_proba(data)
-        probabilities = [probability[1] * 100 for probability in prediction]
+        probabilities = [probability[1] for probability in prediction]
 
         return probabilities, list(data.ID)
     

@@ -40,6 +40,9 @@ fileInput.addEventListener('change', () => {
 
     fileInfo.innerHTML = `Имя файла: ${fileName}<br>Размер файла: ${fileSize}`;
     resolt.innerHTML = `<a class="result-class" href="./result.html">Результат</a>`;
+
+  // <button type="submit" class="result-class" href="/result.html">Результат</button>
+
   } else {
     fileInfo.innerHTML = 'Загрузите только один файл за раз.';
   }
