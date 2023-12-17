@@ -1,7 +1,6 @@
 import '../result.html';
 import '../scss/result.scss';
 import './result_sort';
-
 import Chart from 'chart.js/auto';
 
 const crl = document.getElementById('myCircl').getContext('2d');
@@ -130,16 +129,13 @@ const MoreThan60 = document.getElementById('MoreThan60');
 //   },
 // });
 
-
-let people = []; // Объявляем пустой массив для хранения данных
-
-let greaterThan60, between31And60, lessThan30;
-
-export { people, fetchData };
-
+// export { people };
 // export стоял перер всей функцией fetchData
 
-const fetchData = async () => {
+let people = [];
+let greaterThan60, between31And60, lessThan30;
+
+export const fetchData = async () => {
   try {
     const response = await fetch('/json/prediction.json');
     const data = await response.json();
@@ -162,15 +158,18 @@ const fetchData = async () => {
     MoreThan30.innerHTML = `${between31And60} - Более 30%`;
     MoreThan60.innerHTML = `${greaterThan60} - Более 60%`;
 
-    drawCharts(); // Теперь drawCharts не принимает аргументов, так как people стало глобальной переменной
+    drawCharts(); 
+
+    return people;
+
   } catch (error) {
     console.error('Ошибка загрузки данных', error);
   }
 };
 
+export { people };
 
 const drawCharts = () => {
-
 
   const dataPoints = people.map(person => person.percent);
 
@@ -191,7 +190,6 @@ const drawCharts = () => {
       bins[binIndex].count += 1;
     }
   });
-
 
   new Chart(ctx, {
     type: 'bar',
@@ -218,8 +216,8 @@ const drawCharts = () => {
 
         tooltip: {
           enabled: false,
-          bodyFontColor: '#FFF', // Цвет текста в подсказках
-          titleFontColor: '#FFF', // Цвет заголовка подсказки
+          bodyFontColor: '#FFF',
+          titleFontColor: '#FFF', 
         }
       },
       scales: {
@@ -238,7 +236,7 @@ const drawCharts = () => {
     },
   });
 
-  // График Doughnut
+
   new Chart(crl, {
     type: 'doughnut',
     data: {
@@ -251,15 +249,15 @@ const drawCharts = () => {
           '#F38137',
           '#61B124'
         ],
-        borderColor: '#000', // цвет границы
-        borderWidth: 1, // ширина границы
+        borderColor: '#000', 
+        borderWidth: 1, 
       }]
     },
     options: {
       cutout: '80%',
       plugins: {
         legend: {
-          display: false, // Скрыть легенду
+          display: false,
         }
       }
     }
