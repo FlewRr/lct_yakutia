@@ -1,0 +1,11 @@
+{
+  "targets": { "node": "current" },
+  "presets": ["@babel/env"]
+}
+
+
+
+// {
+//   "presets": ["@babel/preset-env"],
+//   "plugins": ["@babel/plugin-proposal-class-properties"]
+// }
