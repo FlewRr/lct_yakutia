@@ -5,6 +5,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerWebpackPlugin = require ('css-minimizer-webpack-plugin');
 const TerserWebpackPlugin = require ('terser-webpack-plugin');
 const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+
 
 const isDev = process.env.NODE_ENV === 'development';
 const isProd = !isDev;
@@ -76,9 +78,11 @@ module.exports = {
   },
 
   devServer: {
-    static: {
-      directory: path.resolve(__dirname, 'app'),
-    },
+
+      static: [
+        { directory: path.resolve(__dirname, 'app') },
+        // { directory: path.resolve(__dirname, 'json')},
+      ],
 
     historyApiFallback: true, 
     open: 'firefox', 
@@ -120,7 +124,21 @@ module.exports = {
 
     new MiniCssExtractPlugin({
       filename: `./css/${filename('css')}`
-    })
+    }),
+
+    // new CopyWebpackPlugin({
+    //   patterns: [
+    //     { from: 'js/prediction.json', to: 'js' },
+    //   ],
+    // })
+
+    // new CopyWebpackPlugin({
+    //   patterns: [
+    //     { from: '../json', to: 'json' },
+    //     // { from: 'js/prediction.json', to: 'js', noErrorOnMissing: true }, 
+    //   ],
+    // }),
+
   ],
 
   devtool: isProd ? false : 'source-map',
@@ -136,12 +154,43 @@ module.exports = {
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
       },
       {
-        test: /\.(?:|gif|png|jpg|jpeg|svg)$/i,
+        test: /\.(?:gif|png|jpg|jpeg|svg)$/i,
         type: 'asset/resource',
         generator: {
           filename: `./img/${filename('[ext]')}`
         }
-      }
+      },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: [{loader: 'babel-loader'}]
+      },
+      // {
+      //   test: /\.json$/,
+      //   use: {
+      //     loader: 'file-loader',
+      //     options: {
+      //       outputPath: 'js', // Путь в папке сборки
+      //       name: 'prediction.json', // Имя сохраняемого файла
+      //     },
+      //   },
+      //   type: 'javascript/auto', 
+      // },
+      // {
+      //   test: /jsonPath\.js$/,
+      //   use: ['json-loader'],
+      // },
+      // {
+      //   test: /\.json$/,
+      //   use: ['file-loader'], // Используйте file-loader для копирования JSON-файлов
+      //   type: 'javascript/auto',
+      // },
+      // },
+      // {
+      //   test: /\.json$/,
+      //   use: 'json-loader'
+      // }
+
     ]
   }
 
